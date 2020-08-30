@@ -12,13 +12,13 @@ class MealItem extends StatelessWidget {
 
   const MealItem({
     @required this.id,
-    @required this.title, 
-    @required this.imageURL, 
-    @required this.duration, 
-    @required this.complexity, 
+    @required this.title,
+    @required this.imageURL,
+    @required this.duration,
+    @required this.complexity,
     @required this.affordability,
   });
-  
+
   // String get complexityText {
   //   switch (complexity) {
   //     case Complexity.Simple:
@@ -71,62 +71,86 @@ class MealItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Column(children: [
-          Stack(children: [
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
-              ),
-              child: Image.network(
-                imageURL,
-                height: 250,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Positioned(
-              bottom: 20,
-              right: 5,
-              child: Container(
-                width: 300,
-                color: Colors.black54,
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 26,
-                    color: Colors.white,
-                  ),
-                  softWrap: true,
-                  overflow: TextOverflow.fade,
-            ),
-              ),
-            )
-          ],),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
+          children: [
+            Stack(
               children: [
-                Row(children: [
-                  Icon(Icons.schedule),
-                  SizedBox(width: 5,),
-                  Text('$duration mins'),
-                ],),
-                Row(children: [
-                  Icon(Icons.work),
-                  SizedBox(width: 5,),
-                  Text('${complexity.toString().substring(11)}'),
-                ],),
-                Row(children: [
-                  Icon(Icons.attach_money),
-                  SizedBox(width: 5,),
-                  Text('${affordability.toString().substring(14)}'),
-                ],),
-            ],),
-          ),
-        ],),
+                ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                    ),
+                    child: FadeInImage.assetNetwork(
+                      placeholder: 'assets/thumbnail.png',
+                      image: imageURL,
+                      height: 250,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    )
+                    // child: Image.network(
+                    //   imageURL,
+                    //   height: 250,
+                    //   width: double.infinity,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    ),
+                Positioned(
+                  bottom: 20,
+                  right: 5,
+                  child: Container(
+                    width: 300,
+                    color: Colors.black54,
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.white,
+                      ),
+                      softWrap: true,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.schedule),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('$duration mins'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.work),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('${complexity.toString().substring(11)}'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.attach_money),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('${affordability.toString().substring(14)}'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
