@@ -12,13 +12,13 @@ class MealItem extends StatelessWidget {
 
   const MealItem({
     @required this.id,
-    @required this.title, 
-    @required this.imageURL, 
-    @required this.duration, 
-    @required this.complexity, 
+    @required this.title,
+    @required this.imageURL,
+    @required this.duration,
+    @required this.complexity,
     @required this.affordability,
   });
-  
+
   // String get complexityText {
   //   switch (complexity) {
   //     case Complexity.Simple:
@@ -105,35 +105,47 @@ class MealItem extends StatelessWidget {
                     fontSize: 26,
                     color: Colors.white,
                   ),
-                  softWrap: true,
-                  overflow: TextOverflow.fade,
-            ),
+                )
               ),
-            )
-          ],),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(children: [
-                  Icon(Icons.schedule),
-                  SizedBox(width: 5,),
-                  Text('$duration mins'),
-                ],),
-                Row(children: [
-                  Icon(Icons.work),
-                  SizedBox(width: 5,),
-                  Text('${complexity.toString().substring(11)}'),
-                ],),
-                Row(children: [
-                  Icon(Icons.attach_money),
-                  SizedBox(width: 5,),
-                  Text('${affordability.toString().substring(14)}'),
-                ],),
-            ],),
-          ),
-        ],),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.schedule),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('$duration mins'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.work),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('${complexity.toString().substring(11)}'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.attach_money),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('${affordability.toString().substring(14)}'),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )]
+        ),
       ),
     );
   }
