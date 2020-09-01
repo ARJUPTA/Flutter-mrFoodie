@@ -31,8 +31,9 @@ class MealDetailScreen extends StatelessWidget {
             Container(
               height: 300,
               width: double.infinity,
-              child: Image.network(
-                mealDetails.imageURL,
+              child: FadeInImage.assetNetwork(
+                image: mealDetails.imageURL,
+                placeholder: 'assets/thumbnail.png',
                 fit: BoxFit.cover,
               ),
             ),
