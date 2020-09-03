@@ -71,48 +71,42 @@ class MealItem extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                    ),
-                    child: FadeInImage.assetNetwork(
-                      placeholder: 'assets/thumbnail.png',
-                      image: imageURL,
-                      height: 250,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    )
-                    // child: Image.network(
-                    //   imageURL,
-                    //   height: 250,
-                    //   width: double.infinity,
-                    //   fit: BoxFit.cover,
-                    // ),
-                    ),
-                Positioned(
-                  bottom: 20,
-                  right: 5,
-                  child: Container(
-                    width: 300,
-                    color: Colors.black54,
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 26,
-                        color: Colors.white,
-                      ),
-                      softWrap: true,
-                      overflow: TextOverflow.fade,
-                    ),
+        child: Column(children: [
+          Stack(children: [
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+              child: FadeInImage.assetNetwork(
+                placeholder: 'assets/thumbnail.png',
+                image: imageURL,
+                height: 250,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              )
+              // child: Image.network(
+              //   imageURL,
+              //   height: 250,
+              //   width: double.infinity,
+              //   fit: BoxFit.cover,
+              // ),
+            ),
+            Positioned(
+              bottom: 20,
+              right: 5,
+              child: Container(
+                width: 300,
+                color: Colors.black54,
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 26,
+                    color: Colors.white,
                   ),
                 )
-              ],
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),
@@ -150,6 +144,7 @@ class MealItem extends StatelessWidget {
               ),
             ),
           ],
+        )]
         ),
       ),
     );
